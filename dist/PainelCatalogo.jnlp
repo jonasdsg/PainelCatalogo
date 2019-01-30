@@ -8,11 +8,11 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="PainelCatalogo.jar" size="10266" download="eager" />
+    <jar href="PainelCatalogo.jar" size="13295" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="PainelCatalogo" >
     <param name="requiredFXVersion" value="8.0+"/>
   </applet-desc>
-  <jfx:javafx-desc  width="800" height="600" main-class="painelcatalogo.PainelCatalogo"  name="PainelCatalogo" />
+  <jfx:javafx-desc  width="800" height="600" main-class="tela.login.TelaLogin"  name="PainelCatalogo" />
   <update check="always"/>
 </jnlp>

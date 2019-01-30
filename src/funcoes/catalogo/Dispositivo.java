@@ -1,4 +1,4 @@
-package br.com.catalogo;
+package funcoes.catalogo;
 public class Dispositivo{
 	private int chaveDispositivo;
 	private String tipodeDispositivo,numerodeSerie,modelodoDispositivo,descricaodoDispositivo,estadodoDispositivo,local;

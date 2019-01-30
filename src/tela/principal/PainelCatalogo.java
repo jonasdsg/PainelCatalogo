@@ -1,37 +1,37 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package painelcatalogo;
-import br.com.catalogo.*;
+package tela.principal;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import tela.login.TelaLogin;
 
-/**
- *
- * @author jonas
- */
 public class PainelCatalogo extends Application {
+    private static Parent root;
+    private static Scene tela,tela2;
+    private static Stage telaInicial;
+    
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        telaInicial = stage;
+        root = FXMLLoader.load(getClass().getResource("FXMLTelaPrincipal.fxml"));
         
-        Scene scene = new Scene(root);
+        tela = new Scene(root);
         
-        stage.setScene(scene);
+        stage.setScene(tela);
         stage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }
     
+
+   
+    public static void MudaTela()
+    {
+        telaInicial.setScene(tela);
+        telaInicial.show();
+    }
 }

@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/jonas/CursoJava/PainelCatalogo/src/br/com/catalogo/Endereco.java</file>
-            <file>file:/home/jonas/CursoJava/PainelCatalogo/src/br/com/catalogo/Pessoa.java</file>
-            <file>file:/home/jonas/CursoJava/PainelCatalogo/src/br/com/catalogo/Dispositivo.java</file>
-            <file>file:/home/jonas/CursoJava/PainelCatalogo/src/br/com/catalogo/PessoaFisica.java</file>
             <file>file:/home/jonas/CursoJava/PainelCatalogo/src/painelcatalogo/FXMLDocumentController.java</file>
+            <file>file:/home/jonas/CursoJava/PainelCatalogo/src/tela/login/FXMLTelaLogin.fxml</file>
             <file>file:/home/jonas/CursoJava/PainelCatalogo/src/painelcatalogo/PainelCatalogo.java</file>
-            <file>file:/home/jonas/CursoJava/PainelCatalogo/src/br/com/catalogo/PessoaJuridica.java</file>
+            <file>file:/home/jonas/CursoJava/PainelCatalogo/src/funcoes/catalogo/Dispositivo.java</file>
+            <file>file:/home/jonas/CursoJava/PainelCatalogo/src/tela/login/FXMLTelaLoginController.java</file>
+            <file>file:/home/jonas/CursoJava/PainelCatalogo/src/tela/login/TelaLogin.java</file>
         </group>
     </open-files>
 </project-private>

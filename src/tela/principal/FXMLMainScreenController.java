@@ -1,6 +1,6 @@
-package painelcatalogo;
+package tela.principal;
 
-import br.com.catalogo.Endereco;
+import funcoes.catalogo.Endereco;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -11,10 +11,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import br.com.catalogo.PessoaFisica;
-import br.com.catalogo.PessoaJuridica;
+import funcoes.catalogo.PessoaFisica;
+import funcoes.catalogo.PessoaJuridica;
 
-public class FXMLDocumentController implements Initializable {
+public class FXMLMainScreenController implements Initializable {
 
     @FXML
     private TextField cadastrarCEP;

@@ -1,4 +1,4 @@
-package br.com.catalogo;
+package funcoes.catalogo;
 
 public class Endereco{
 	private String cep,rua,bairro,municipio,cidade,estado,uf;

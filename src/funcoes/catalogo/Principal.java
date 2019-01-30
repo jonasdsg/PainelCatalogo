@@ -1,9 +1,9 @@
-package br.com.catalogo;
+package funcoes.catalogo;
 import java.util.Scanner;
 
-import br.com.catalogo.Dispositivo;
-import br.com.catalogo.PessoaFisica;
-import br.com.catalogo.PessoaJuridica;
+import funcoes.catalogo.Dispositivo;
+import funcoes.catalogo.PessoaFisica;
+import funcoes.catalogo.PessoaJuridica;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 
