@@ -1,6 +1,6 @@
 package tela.principal;
 
-import funcoes.catalogo.Endereco;
+import classes.catalogo.Endereco;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -11,8 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import funcoes.catalogo.PessoaFisica;
-import funcoes.catalogo.PessoaJuridica;
+import classes.catalogo.PessoaFisica;
+import classes.catalogo.PessoaJuridica;
 
 public class FXMLMainScreenController implements Initializable {
 

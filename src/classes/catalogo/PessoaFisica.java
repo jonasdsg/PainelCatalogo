@@ -1,4 +1,4 @@
-package funcoes.catalogo;
+package classes.catalogo;
 
 public class PessoaFisica extends Pessoa{
 	String cpf,rg;

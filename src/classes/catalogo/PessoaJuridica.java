@@ -1,4 +1,4 @@
-package funcoes.catalogo;
+package classes.catalogo;
 
 public class PessoaJuridica extends Pessoa{
 	String cnpj,inscricaoEstadual;

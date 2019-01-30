@@ -38,9 +38,9 @@ public class FXMLTelaLoginController implements Initializable {
         else
         {
             Alert alerta = new Alert(AlertType.ERROR);
-            alerta.setTitle("Erro!");
-            alerta.setHeaderText("Falha ao executar login, algo está errado");
-            alerta.setContentText("O usuário/senha digitados não conferem com o banco de dados,\n revise o nome e senha informados.");
+            alerta.setTitle("Erro ao efetuar login!");
+            alerta.setHeaderText("Houve uma falha ao iniciar o serviço.");
+            alerta.setContentText("O usuário ou senha informados não conferem com o banco de dados.");
             alerta.show();
         }
         

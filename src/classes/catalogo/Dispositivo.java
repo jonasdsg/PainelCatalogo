@@ -1,4 +1,4 @@
-package funcoes.catalogo;
+package classes.catalogo;
 public class Dispositivo{
 	private int chaveDispositivo;
 	private String tipodeDispositivo,numerodeSerie,modelodoDispositivo,descricaodoDispositivo,estadodoDispositivo,local;

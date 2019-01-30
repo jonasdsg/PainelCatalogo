@@ -1,9 +1,9 @@
-package funcoes.catalogo;
+package classes.catalogo;
 import java.util.Scanner;
 
-import funcoes.catalogo.Dispositivo;
-import funcoes.catalogo.PessoaFisica;
-import funcoes.catalogo.PessoaJuridica;
+import classes.catalogo.Dispositivo;
+import classes.catalogo.PessoaFisica;
+import classes.catalogo.PessoaJuridica;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 

@@ -1,6 +1,4 @@
-package funcoes.catalogo;
-
-import funcoes.catalogo.Endereco;
+package classes.catalogo;
 
 abstract class Pessoa{
 	protected long chaveCliente;
