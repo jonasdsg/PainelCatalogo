@@ -1,10 +1,9 @@
-package tela.principal;
+package catalogo.tela.principal;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import tela.login.TelaLogin;
 
 public class PainelCatalogo extends Application {
     private static Parent root;
