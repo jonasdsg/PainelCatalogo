@@ -51,7 +51,7 @@ public class FXMLUsuariosController implements Initializable {
         if(cadastrarPessoaJuridica.isDisable()==true)
         {
             PessoaFisica cadastro;
-            cadastro = new PessoaFisica(cadastrarNome.getText(),cadastrarDocumento.getText());
+            cadastro = new PessoaFisica(cadastrarNome.getText(),cadastrarDocumento.getText(),endereco);
             cadastro.setEndereco(endereco);
             cadastro.setTelefone(cadastrarTelefone.getText());   
         }

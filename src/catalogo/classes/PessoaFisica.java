@@ -33,11 +33,12 @@ package catalogo.classes;
             }
 	}
 	
-	public PessoaFisica(String nome,String cpf)
+	public PessoaFisica(String nome,String cpf,Endereco endereco)
 	{
             super(nome);
             this.setCpf(cpf);
             Pessoa.setChaveCliente();
             this.chave = Pessoa.getControledeChaveCliente();
+            this.setEndereco(endereco);
 	}	
     }

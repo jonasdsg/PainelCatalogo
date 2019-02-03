@@ -4,16 +4,16 @@ use catalogoloja;
 create table endereco(
 	cep			int primary key not null,
     rua			varchar(255),
-    numero		smallint,
     bairro		varchar(255),
     cidade		varchar(255),
     municipio	varchar(255),
     estado		varchar(255),
     uf			varchar(3)
 );
-create table Pessoa(
-	idPessoa		int not null primary key,
-    nomePessoa		varchar(255),
+
+create table pessoa(
+	idpessoa		int not null primary key,
+    nomepessoa		varchar(255),
     telefone		varchar(255),
     celular			varchar(255),
     enderecofk		int not null,
@@ -21,20 +21,18 @@ create table Pessoa(
     
 );
 
-create table PessoaFisica(
-	idPessoaFisica	int not null,
+create table pessoafisica(
+	idpessoafisica	int not null,
     cpf				varchar(255),
     rg				varchar(255),
-    enderecoCli		int not null,    
-    foreign key (enderecoCli) references endereco(cep),
-    foreign key (idPessoaFisica) references Pessoa(idPessoa)
+    foreign key (idpessoafisica) references pessoa(idpessoa)
 );
 
-create table PessoaJuridica(
-	idPessoaJuridica int not null,
+create table pessoaJuridica(
+	idpessoaJuridica int not null,
     cnpj			 varchar(255),
     ie				 varchar(255),
-    foreign key (idPessoaJuridica) references Pessoa(idPessoa)
+    foreign key (idpessoaJuridica) references pessoa(idpessoa)
 );
 
 create table Dispositivos(
@@ -48,17 +46,23 @@ create table Dispositivos(
 );
 
 insert into endereco values
-(20040007,"Avenida Rio Branco",185,"Centro","Rio de Janeiro","Rio de Janeiro","Rio de Janeiro","RJ"),
-(26160265,"Estrada do Babi",77,"Vila Sao Sebastiao","Belford Roxo","Belford Roxo","Rio de Janeiro","RJ");
+(20040007,"Avenida Rio Branco","Centro","Rio de Janeiro","Rio de Janeiro","Rio de Janeiro","RJ"),
+(26160265,"Estrada do Babi","Vila Sao Sebastiao","Belford Roxo","Belford Roxo","Rio de Janeiro","RJ");
 
-insert into Pessoa values
-(1,"Jonas Goes","(021) 2262-5656","(021) 92970-7950",20040007);
+insert into pessoa values
+(10,"Jonas Goes","(021) 2262-5656","(021) 92970-7950",20040007);
 
-insert into PessoaFisica values 
-(1,"511.544.487-07","53.457.288-9",20040007);
+insert into pessoafisica values 
+(10,"511.544.487-07","53.457.288-9");
 
-/* inner join Endereco on Pessoa.enderecofk=Endereco.cep; */
-select * from PessoaFisica;
-select Pessoa.nomePessoa as Nome, PessoaFisica.cpf as Identidade, endereco.rua as Endereco, endereco.numero as numero, endereco.cep as Cep from PessoaFisica 
-inner join Pessoa on Pessoa.idPessoa=PessoaFisica.idPessoaFisica
-inner join endereco on PessoaFisica.enderecoCli=endereco.cep;
+/* inner join Endereco on pessoa.enderecofk=Endereco.cep; */
+select * from pessoafisica;
+
+select pessoa.nomepessoa as Nome, pessoafisica.cpf 
+as Identidade, endereco.rua as Endereco, endereco.numero 
+as numero, endereco.cep as Cep from pessoafisica 
+inner join pessoa on pessoa.idpessoa=pessoafisica.idpessoafisica
+inner join pessoa on pessoa.enderecofk=endereco.cep;
+
+select * from endereco;
+select * from pessoa;
