@@ -4,12 +4,13 @@ import javafx.scene.control.Alert;
 
     public class Endereco{
         
-	private String cep,rua,bairro,municipio,cidade,estado,uf;
-	
+	private String rua,bairro,municipio,cidade,estado,uf;
+	private long cep;
+        
         public Endereco()
         {}
         
-        public void CadastraEndereco(String cep,String rua, String bairro,String municipio,String cidade,String estado,String uf)
+        public void CadastraEndereco(long cep,String rua, String bairro,String municipio,String cidade,String estado,String uf)
         {
             Alert alerta;
             alerta = new Alert(Alert.AlertType.ERROR);
@@ -170,14 +171,14 @@ import javafx.scene.control.Alert;
             return this.uf;
         }
 
-        public String getCep() 
+        public long getCep() 
         {
             return this.cep;
         }
 
-        public boolean setCep(String cep) 
+        public boolean setCep(long cep) 
         {
-            if(cep == null || cep.equals("")) return false;
+            if(cep == 0) return false;
             else 
             {
                 this.cep = cep;    

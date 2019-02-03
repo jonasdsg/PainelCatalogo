@@ -35,9 +35,10 @@ public class FXMLMainScreenController implements Initializable {
     @FXML
     private void botaoCriar(ActionEvent event)
     {
-        String cep,rua,bairro,municipio,cidade,estado,uf;
+        String rua,bairro,municipio,cidade,estado,uf;
+        long cep;
         Endereco endereco = new Endereco();
-        cep = cadastrarCEP.getText();
+        cep = Long.parseLong(cadastrarCEP.getText());
         rua = cadastrarEndereco.getText();
         bairro = cadastrarBairro.getText();
         municipio = cadastrarMunicipio.getText();

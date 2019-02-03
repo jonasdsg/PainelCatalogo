@@ -4,7 +4,15 @@ package catalogo.classes;
     
 	protected static long controledeChaveCliente;
 	protected long chave;
-        protected String nome,telefone;
+        protected String nome,telefone,celular;
+
+        public String getCelular() {
+            return celular;
+        }
+
+        public void setCelular(String celular) {
+            this.celular = celular;
+        }
 	protected Endereco endereco;
 	
 	public static long getControledeChaveCliente() {
