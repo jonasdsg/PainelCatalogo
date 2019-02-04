@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TabPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="catalogo.tela.principal.FXMLMainScreenController">
+<TabPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="catalogo.tela.consulta.FXMLPainelPrincipal">
    <tabs>
       <Tab closable="false" text="Dispositivo">
         <content>
@@ -48,6 +49,43 @@
                   <Button layoutX="581.0" layoutY="49.0" mnemonicParsing="false" text="Listar tudo" />
                   <Button layoutX="316.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Alterar" />
                   <Button layoutX="400.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Remover" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab closable="false" text="Gerenciar">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="nomeUsuarioCadastrado" editable="false" layoutX="210.0" layoutY="137.0" onAction="#setText" prefHeight="30.0" prefWidth="300.0" />
+                  <PasswordField editable="false" layoutX="210.0" layoutY="202.0" prefHeight="30.0" prefWidth="300.0" />
+                  <Button fx:id="acessarPainelUsuarios" layoutX="280.0" layoutY="250.0" mnemonicParsing="false" onAction="#acessarPainelUsuario" prefHeight="40.0" prefWidth="160.0" text="Acessar" />
+                  <Label layoutX="210.0" layoutY="88.0" prefHeight="42.0" prefWidth="96.0" text="Usuario">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="#c63b3b" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Label layoutX="210.0" layoutY="172.0" text="Senha">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="#b93030" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
                </children>
             </AnchorPane>
         </content>

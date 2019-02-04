@@ -1,6 +1,6 @@
 package catalogo.tela.login;
 
-import catalogo.tela.principal.PainelCatalogo;
+import catalogo.tela.consulta.PainelCatalogo;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;

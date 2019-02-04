@@ -1,4 +1,4 @@
-package catalogo.tela.principal;
+package catalogo.tela.consulta;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
