@@ -1,6 +1,7 @@
 package catalogo.banco;
 
 import catalogo.classes.Dispositivo;
+import catalogo.classes.Pessoa;
 import catalogo.classes.Endereco;
 import catalogo.classes.PessoaFisica;
 import catalogo.classes.PessoaJuridica;
@@ -9,14 +10,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
     public class ManipulaBanco {
 	private static final String driverConnector = "com.mysql.cj.jdbc.Driver";
-	private static final String urlBanco = "jdbc:mysql://localhost:3306/catalogoloja"; 
+	private static final String urlBanco = "jdbc:mysql://localhost:3306/catalogoloja?useTimezone=true&serverTimezone=UTC"; 
 	private static final String usrBanco = "root"; 
-	private static final String passlBanco = "123";
+	private static final String passlBanco = "def3772";
 	private static Connection conexao = null;
 	
 	public static Connection getConnection() throws ClassNotFoundException
@@ -30,41 +29,64 @@ import java.util.logging.Logger;
                 return null;
             }    
 	}
-        
-        public static void getInDataBase() throws SQLException
+
+       public static boolean setPessoaInDataBase(Pessoa pessoa) throws SQLException
         {
-            Statement stmt = conexao.createStatement();   
-        }
-        
-        public static void setPessoaFisicaInDataBase(PessoaFisica pessoa,String sqlQuery) throws SQLException
-        {
+            String sqlQuery = "insert into pessoa(id_pessoa,nome_pessoa,telefone,celular,numero_casa) values (? ,? ,? ,? ,? )";
             try {
                 ManipulaBanco.getConnection();
             } catch (ClassNotFoundException ex) {
                 System.err.println("Erro na conexao.");
             }
             
+            if(pessoa == null || pessoa.getNome().equals("")) return false;
+            else
+            {
+                try {
+                    ManipulaBanco.getConnection();
+                } catch (ClassNotFoundException exp) {
+                    System.err.println("Erro na conexao: "+exp);
+                }
+
+                PreparedStatement valorDeclarado = conexao.prepareStatement(sqlQuery);
+                valorDeclarado.setLong(1,pessoa.getChave());
+                valorDeclarado.setString(2,pessoa.getNome());
+                valorDeclarado.setString(3,pessoa.getTelefone());
+                valorDeclarado.setString(4,pessoa.getCelular());
+                valorDeclarado.setLong(5,pessoa.getEndereco().getCep());
+                valorDeclarado.execute();
+                conexao.close();
+                valorDeclarado.close();
+                return true;
+            }
+        }        
+        
+        public static void setPessoaFisicaInDataBase(PessoaFisica pessoa) throws SQLException
+        {
+            String sqlQuery = "insert into pessoafisica(id_pf,cpf,rg,cep_endereco) values (?, ?, ?, ?)";
+            
+            try {
+                ManipulaBanco.getConnection();
+            } catch (ClassNotFoundException exp) {
+                System.err.println("Erro na conexao."+exp);
+            }
+            
+            setPessoaInDataBase(pessoa);
             PreparedStatement valorDeclarado = conexao.prepareStatement(sqlQuery);
-            valorDeclarado.setLong(1,pessoa.getChave());
-            valorDeclarado.setString(2,pessoa.getNome());
-            valorDeclarado.setString(3,pessoa.getTelefone());
-            valorDeclarado.setString(4,pessoa.getCelular());
-            valorDeclarado.setLong(5,pessoa.getEndereco().getCep());
-            valorDeclarado.execute();
-            valorDeclarado = conexao.prepareStatement("insert into pessoafisica(idpessoafisica,cpf,rg) values (?, ?, ?)");
             valorDeclarado.setLong(1, pessoa.getChave());
             valorDeclarado.setString(2, pessoa.getCpf());
             valorDeclarado.setString(3, pessoa.getRg());
             valorDeclarado.execute();
             conexao.close();
+            valorDeclarado.close();
         }
         
         public static void setPessoaJuridicaInDataBase(PessoaJuridica pessoa,String sqlQuery) throws SQLException
         {
             try {
                 ManipulaBanco.getConnection();
-            } catch (ClassNotFoundException ex) {
-                System.err.println("Erro na conexao.");
+            } catch (ClassNotFoundException exp) {
+                System.err.println("Erro na conexao: "+exp);
             }
             
             PreparedStatement valorDeclarado = conexao.prepareStatement(sqlQuery);
@@ -107,8 +129,8 @@ import java.util.logging.Logger;
 
             try {
                 ManipulaBanco.getConnection();
-            } catch (ClassNotFoundException ex) {
-                System.err.println("Erro na conexao.");
+            } catch (ClassNotFoundException exp) {
+                System.err.println("Erro na conexao: "+exp);
             }
             
             PreparedStatement valorDeclarado = conexao.prepareStatement(sqlQuery);
@@ -116,11 +138,11 @@ import java.util.logging.Logger;
             valorDeclarado.setString(2, endereco.getRua());
             valorDeclarado.setString(3, endereco.getBairro());
             valorDeclarado.setString(4, endereco.getCidade());
-            valorDeclarado.setString(5, endereco.getMunicipio());
-            valorDeclarado.setString(6, endereco.getEstado());
-            valorDeclarado.setString(7, endereco.getUf());
+            valorDeclarado.setString(5, endereco.getEstado());
+            valorDeclarado.setString(6, endereco.getUf());
             valorDeclarado.execute();
             conexao.close();
+            valorDeclarado.close();
         }
  
 }

@@ -1,6 +1,6 @@
 package catalogo.classes;
 
-    abstract class Pessoa{
+    public class Pessoa{
     
 	protected static long controledeChaveCliente;
 	protected long chave;
