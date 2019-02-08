@@ -45,10 +45,10 @@ import java.sql.SQLException;
             
             
             try {
-                ManipulaBanco.setEnderecoInDatabase(endereco,"insert into endereco(cep,rua,bairro,cidade,estado,uf) values (? ,? ,? ,? ,? ,?)");
-                ManipulaBanco.setPessoaFisicaInDataBase(cliente);
+                //ManipulaBanco.setEnderecoInDatabase(endereco,"insert into endereco(cep,rua,bairro,cidade,estado,uf) values (? ,? ,? ,? ,? ,?)");
+                //ManipulaBanco.setEnderecoInDatabase(endereco2,"insert into endereco(cep,rua,bairro,cidade,estado,uf) values (? ,? ,? ,? ,? ,?)");
                 
-                ManipulaBanco.setEnderecoInDatabase(endereco2,"insert into endereco(cep,rua,bairro,cidade,estado,uf) values (? ,? ,? ,? ,? ,?)");
+                ManipulaBanco.setPessoaFisicaInDataBase(cliente);
                 ManipulaBanco.setPessoaFisicaInDataBase(cliente2);
             } catch (SQLException exp) {
                 System.err.println("Erro ao inserir dados "+exp);

@@ -64,14 +64,13 @@ import java.sql.Statement;
         public static void setPessoaFisicaInDataBase(PessoaFisica pessoa) throws SQLException
         {
             String sqlQuery = "insert into pessoafisica(id_pf,cpf,rg,cep_endereco) values (?, ?, ?, ?)";
-            
+            setPessoaInDataBase(pessoa); 
             try {
                 ManipulaBanco.getConnection();
             } catch (ClassNotFoundException exp) {
                 System.err.println("Erro na conexao."+exp);
             }
-            
-            setPessoaInDataBase(pessoa);
+           
             PreparedStatement valorDeclarado = conexao.prepareStatement(sqlQuery);
             valorDeclarado.setLong(1, pessoa.getChave());
             valorDeclarado.setString(2, pessoa.getCpf());
