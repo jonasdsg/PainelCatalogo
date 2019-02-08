@@ -47,7 +47,10 @@ import java.sql.SQLException;
             try {
                 //ManipulaBanco.setEnderecoInDatabase(endereco,"insert into endereco(cep,rua,bairro,cidade,estado,uf) values (? ,? ,? ,? ,? ,?)");
                 //ManipulaBanco.setEnderecoInDatabase(endereco2,"insert into endereco(cep,rua,bairro,cidade,estado,uf) values (? ,? ,? ,? ,? ,?)");
+                /*
+                    inserir o campo cep na classe  pessoafisica, pois nao está sendo inserido esse valor na tabela. gerando erro.
                 
+                */
                 ManipulaBanco.setPessoaFisicaInDataBase(cliente);
                 ManipulaBanco.setPessoaFisicaInDataBase(cliente2);
             } catch (SQLException exp) {
