@@ -51,4 +51,4 @@ select * from endereco;
 select * from pessoa;
 select * from pessoafisica;
 
-drop database catalogoloja;
+update pessoa set id_pessoa=id_pessoa+8;
