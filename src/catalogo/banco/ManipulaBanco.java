@@ -15,7 +15,7 @@ import java.sql.Statement;
 	private static final String driverConnector = "com.mysql.cj.jdbc.Driver";
 	private static final String urlBanco = "jdbc:mysql://localhost:3306/catalogoloja?useTimezone=true&serverTimezone=UTC"; 
 	private static final String usrBanco = "root"; 
-	private static final String passlBanco = "def3772";
+	private static final String passlBanco = "123";
 	private static Connection conexao = null;
 	
 	public static Connection getConnection() throws ClassNotFoundException
@@ -75,6 +75,7 @@ import java.sql.Statement;
             valorDeclarado.setLong(1, pessoa.getChave());
             valorDeclarado.setString(2, pessoa.getCpf());
             valorDeclarado.setString(3, pessoa.getRg());
+            valorDeclarado.setLong(4,pessoa.getCep());
             valorDeclarado.execute();
             conexao.close();
             valorDeclarado.close();

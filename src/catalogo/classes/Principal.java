@@ -42,11 +42,12 @@ import java.sql.SQLException;
             cliente2.setCelular("(21) 9099-5550");
             cliente2.setRg("33.588.818-0");
             cliente2.setTelefone("(21) 2233-4455");
-            
+            cliente.setCep(endereco.getCep());
+            cliente2.setCep(endereco2.getCep());
             
             try {
-                //ManipulaBanco.setEnderecoInDatabase(endereco,"insert into endereco(cep,rua,bairro,cidade,estado,uf) values (? ,? ,? ,? ,? ,?)");
-                //ManipulaBanco.setEnderecoInDatabase(endereco2,"insert into endereco(cep,rua,bairro,cidade,estado,uf) values (? ,? ,? ,? ,? ,?)");
+                ManipulaBanco.setEnderecoInDatabase(endereco,"insert into endereco(cep,rua,bairro,cidade,estado,uf) values (? ,? ,? ,? ,? ,?)");
+                ManipulaBanco.setEnderecoInDatabase(endereco2,"insert into endereco(cep,rua,bairro,cidade,estado,uf) values (? ,? ,? ,? ,? ,?)");
                 /*
                     inserir o campo cep na classe  pessoafisica, pois nao está sendo inserido esse valor na tabela. gerando erro.
                 

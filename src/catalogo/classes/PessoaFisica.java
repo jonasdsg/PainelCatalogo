@@ -2,6 +2,15 @@ package catalogo.classes;
 
     public class PessoaFisica extends Pessoa{
 	String cpf,rg;
+        long cep;
+
+    public long getCep() {
+        return cep;
+    }
+
+    public void setCep(long cep) {
+        this.cep = cep;
+    }
 
 	public String getCpf()
 	{
