@@ -5,9 +5,11 @@ import catalogo.classes.Pessoa;
 import catalogo.classes.Endereco;
 import catalogo.classes.PessoaFisica;
 import catalogo.classes.PessoaJuridica;
+import com.mysql.cj.protocol.Resultset;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -17,6 +19,8 @@ import java.sql.Statement;
 	private static final String usrBanco = "root"; 
 	private static final String passlBanco = "123";
 	private static Connection conexao = null;
+        private static Statement stmt = null;
+        private static ResultSet resultado = null;
 	
 	public static Connection getConnection() throws ClassNotFoundException
 	{
@@ -144,5 +148,127 @@ import java.sql.Statement;
             conexao.close();
             valorDeclarado.close();
         }
- 
+        
+        public static void getPessoaInDataBase(String sqlQuery) throws SQLException
+        {
+            long id_pessoa;
+            String nome_pessoa,telefone,celular;
+            int numero_casa;
+                
+            try {
+                ManipulaBanco.getConnection();
+            } catch (ClassNotFoundException exp) {
+                System.err.println("Erro ao estabelecer conexão "+exp);
+            }
+            stmt = conexao.createStatement();
+            resultado = stmt.executeQuery(sqlQuery);
+            while(resultado.next())
+            {
+                id_pessoa = resultado.getLong("id_pessoa");
+                nome_pessoa = resultado.getString("nome_pessoa");
+                telefone = resultado.getString("telefone");
+                celular = resultado.getString("celular");
+                numero_casa = resultado.getInt("numero_casa");
+                System.out.printf(" %d, %s, %s, %s, %d\n", id_pessoa,nome_pessoa,telefone,celular,numero_casa);
+            }
+        }
+
+        public static void getPessoaFisicaInDataBase(String sqlQuery) throws SQLException
+        {
+            int id_pf;
+            String cpf,rg;
+            long cep_endereco;
+
+                
+            try {
+                ManipulaBanco.getConnection();
+            } catch (ClassNotFoundException exp) {
+                System.err.println("Erro ao estabelecer conexão "+exp);
+            }
+            stmt = conexao.createStatement();
+            resultado = stmt.executeQuery(sqlQuery);
+            while(resultado.next())
+            {
+                id_pf = resultado.getInt("id_pf");
+                cpf = resultado.getString("cpf");
+                rg = resultado.getString("rg");
+                cep_endereco = resultado.getLong("cep_endereco");
+                System.out.printf(" %d, %s, %s, %d\n", id_pf,cpf,rg,cep_endereco);
+            }
+        }
+
+        public static void getPessoaJuridicaInDataBase(String sqlQuery) throws SQLException
+        {
+            int	id_pj;
+            String cnpj,ie;
+            long cep_endereco;
+                
+            try {
+                ManipulaBanco.getConnection();
+            } catch (ClassNotFoundException exp) {
+                System.err.println("Erro ao estabelecer conexão "+exp);
+            }
+            stmt = conexao.createStatement();
+            resultado = stmt.executeQuery(sqlQuery);
+            while(resultado.next())
+            {
+                id_pj = resultado.getInt("id_pj");
+                cnpj = resultado.getString("cnpj");
+                ie = resultado.getString("ie");
+                cep_endereco = resultado.getLong("cep_endereco");
+                System.out.printf(" %d, %s, %s, %d\n", id_pj,cnpj,ie,cep_endereco);
+            }
+        }
+
+        public static void getDispositivosInDataBase(String sqlQuery) throws SQLException
+        {
+            int chave_dispositivo;
+            String tipo_dispositivo,serie_dispositivo,modelo_dispositivo,descricao_dispositivo,estado_dispositivo,local_armazenado;
+                
+            try {
+                ManipulaBanco.getConnection();
+            } catch (ClassNotFoundException exp) {
+                System.err.println("Erro ao estabelecer conexão "+exp);
+            }
+            stmt = conexao.createStatement();
+            resultado = stmt.executeQuery(sqlQuery);
+            while(resultado.next())
+            {
+                chave_dispositivo = resultado.getInt(1);
+                tipo_dispositivo = resultado.getString(2);
+                serie_dispositivo = resultado.getString(3);
+                modelo_dispositivo = resultado.getString(4);
+                descricao_dispositivo = resultado.getString(5);
+                estado_dispositivo = resultado.getString(6);
+                local_armazenado = resultado.getString(7);
+                System.out.printf(" %d, %s, %s, %s, %s, %s, %s\n", chave_dispositivo,tipo_dispositivo,serie_dispositivo,modelo_dispositivo,descricao_dispositivo,estado_dispositivo,local_armazenado);
+            }
+        }
+        
+        
+        public static void getEnderecoInDataBase(String sqlQuery) throws SQLException
+        {
+            long cep;
+            String rua,bairro,cidade,estado,uf;
+                
+            try {
+                ManipulaBanco.getConnection();
+            } catch (ClassNotFoundException exp) {
+                System.err.println("Erro ao estabelecer conexão "+exp);
+            }
+            stmt = conexao.createStatement();
+            resultado = stmt.executeQuery(sqlQuery);
+            while(resultado.next())
+            {
+                cep = resultado.getLong(1);
+                rua = resultado.getString(2);
+                bairro = resultado.getString(3);
+                cidade = resultado.getString(4);
+                estado = resultado.getString(5);
+                uf = resultado.getString(6);
+                System.out.printf(" %d, %s, %s, %s, %s, %s\n", cep,rua,bairro,cidade,estado,uf);
+            }
+        }
+        
+        
 }

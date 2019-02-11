@@ -46,14 +46,17 @@ import java.sql.SQLException;
             cliente2.setCep(endereco2.getCep());
             
             try {
-                ManipulaBanco.setEnderecoInDatabase(endereco,"insert into endereco(cep,rua,bairro,cidade,estado,uf) values (? ,? ,? ,? ,? ,?)");
-                ManipulaBanco.setEnderecoInDatabase(endereco2,"insert into endereco(cep,rua,bairro,cidade,estado,uf) values (? ,? ,? ,? ,? ,?)");
+               // ManipulaBanco.setEnderecoInDatabase(endereco,"insert into endereco(cep,rua,bairro,cidade,estado,uf) values (? ,? ,? ,? ,? ,?)");
+                //ManipulaBanco.setEnderecoInDatabase(endereco2,"insert into endereco(cep,rua,bairro,cidade,estado,uf) values (? ,? ,? ,? ,? ,?)");
                 /*
                     inserir o campo cep na classe  pessoafisica, pois nao está sendo inserido esse valor na tabela. gerando erro.
                 
                 */
-                ManipulaBanco.setPessoaFisicaInDataBase(cliente);
-                ManipulaBanco.setPessoaFisicaInDataBase(cliente2);
+             //   ManipulaBanco.setPessoaFisicaInDataBase(cliente);
+               // ManipulaBanco.setPessoaFisicaInDataBase(cliente2);
+                ManipulaBanco.getPessoaInDataBase("select * from pessoa");
+                ManipulaBanco.getPessoaFisicaInDataBase("select * from pessoafisica");
+                ManipulaBanco.getEnderecoInDataBase("select * from endereco");
             } catch (SQLException exp) {
                 System.err.println("Erro ao inserir dados "+exp);
             }
